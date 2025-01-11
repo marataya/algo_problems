@@ -1,4 +1,4 @@
-package leetcode.problem_2;
+package leetcode.p_2__add_two_numbers;
 
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
