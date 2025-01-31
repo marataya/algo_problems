@@ -1,5 +1,8 @@
 package leetcode.p_4__median_of_two_sorted_arrays;
 
+import leetcode.p_4__median_of_two_sorted_arrays.Solution;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -7,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class SolutionTest {
 
-    private final Solution solution = new Solution();
+    private Solution solution = new Solution();
 
     @Test
     void testFindMedianSortedArrays_OddLength() {
@@ -65,4 +68,5 @@ class SolutionTest {
         double result = solution.findMedianSortedArrays(nums1, nums2);
         assertEquals(5.5, result, "Median of [1, 3, 5, 7, 9] and [2, 4, 6, 8, 10] should be 5.5");
     }
+
 }
