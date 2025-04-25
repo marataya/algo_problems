@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class Solution_Test {
+class Solution_Bottomup_Test {
 
     @Test
     void twoSum() {

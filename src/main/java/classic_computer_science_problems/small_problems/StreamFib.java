@@ -15,7 +15,15 @@ public class StreamFib {
     }
 
     public static void main(String[] args) {
+        final int[] counter = {0};
+
         StreamFib sf = new StreamFib();
-        sf.stream().limit(41).forEachOrdered(System.out::println);
+        sf.stream().limit(41).forEachOrdered((se) -> {
+            System.out.printf("%d\t\t", se);
+            counter[0]++;
+            if (counter[0] % 10 == 0) {
+                System.out.println();
+            }
+        });
     }
 }
