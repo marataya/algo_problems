@@ -1,4 +1,4 @@
-package coderun.p_7__dfs_in_graph;
+package coderun.p_7__component_in_graph_containing_1_using_dfs;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

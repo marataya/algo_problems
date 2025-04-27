@@ -1,11 +1,9 @@
-package coderun.p_7__dfs_in_graph;
+package coderun.p_7__component_in_graph_containing_1_using_dfs;
 
 
 import java.io.*;
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /*
 *
@@ -45,12 +43,13 @@ import java.util.stream.Stream;
 * */
 public class Solution {
     public static void dfs(int startVertex, List component, HashMap<Integer, HashSet<Integer>> adjM, boolean[] visited) {
+        component.add(startVertex);
+        visited[startVertex] = true;
+
         if (!adjM.containsKey(startVertex)) {
             return;
         }
 
-        visited[startVertex] = true;
-        component.add(startVertex);
         for (int neighbor : adjM.get(startVertex)) {
             if (!visited[neighbor]) {
                 dfs(neighbor, component, adjM, visited);
@@ -62,12 +61,11 @@ public class Solution {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        // Read input
+        // Input
         String[] row = reader.readLine().split(" ");
         int n = Integer.parseInt(row[0]); // number of vertices
         int m = Integer.parseInt(row[1]); // number of edges
 
-        // DFS for vertex #1
         var adjM = new HashMap<Integer, HashSet<Integer>>(); // 1-based
         boolean[] visited = new boolean[n+1]; // 1-based
         var component = new ArrayList<Integer>();
@@ -83,15 +81,9 @@ public class Solution {
         // recursive call of DFS
         dfs(1, component, adjM, visited);
 
-        if (component.size() == 0) {
-            writer.write("1");
-            writer.newLine();
-            writer.write("1");
-        } else {
-            writer.write(String.valueOf(component.size()));
-            writer.newLine();
-            writer.write(component.stream().sorted().map(String::valueOf).collect(Collectors.joining(" ")));
-        }
+        writer.write(String.valueOf(component.size()));
+        writer.newLine();
+        writer.write(component.stream().sorted().map(String::valueOf).collect(Collectors.joining(" ")));
 
         reader.close();
         writer.close();
